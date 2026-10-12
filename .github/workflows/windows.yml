@@ -1,0 +1,41 @@
+name: Windows checks
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-python:
+    runs-on: windows-2025
+    timeout-minutes: 10
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13'
+      - name: Run 95 offline Python checks
+        run: python scripts/run_checks.py
+
+  native-host:
+    runs-on: windows-2025
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Configure standalone x64 host
+        run: cmake -S obs_plugin -B obs_plugin/build-host -A x64 -DBRIDGE_HOST_TEST_ONLY=ON
+      - name: Compile host
+        run: cmake --build obs_plugin/build-host --config Release
+      - name: Run native integration checks
+        run: ctest --test-dir obs_plugin/build-host -C Release --output-on-failure

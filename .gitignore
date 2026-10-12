@@ -1,0 +1,43 @@
+# Python and local builds
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+build/
+build-host/
+build-*/
+dist/
+*.spec
+.deps/
+
+# Local runtime and diagnostic data
+runtime/
+validation/
+logs/
+temp/
+*.log
+*.pid
+.env
+.env.*
+bridge-manifest*.json
+*-verification.json
+validation.json
+
+# Binaries, media and third-party installation files
+*.exe
+*.dll
+*.lib
+*.pdb
+*.obj
+*.zip
+*.7z
+*.mkv
+*.mp4
+*.wav
+
+# Editor/OS data
+.vs/
+.idea/
+.vscode/
+Thumbs.db
+Desktop.ini

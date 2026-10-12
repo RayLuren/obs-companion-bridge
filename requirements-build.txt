@@ -1,0 +1,3 @@
+# Runtime uses stdlib, ctypes and Tk. These are frozen-build dependencies.
+PyInstaller==6.22.3
+pywin32==312
