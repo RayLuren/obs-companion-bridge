@@ -9,6 +9,14 @@
 
 English: A Windows local OBS-to-Douyin Live Companion bridge with an OBS Tools launcher, an elevation-separated controller, and one managed local media source. This is a source-only, version-specific experimental integration.
 
+## AI 辅助开发说明
+
+本项目由维护者发起并提供需求与指导，主要借助 **ChatGPT / Codex** 完成技术研究和开发。项目的 **AI 参与度较高，主体技术实现由 AI 完成**。
+
+维护者主要负责使用目标、方案取舍、提供测试环境和实机反馈；ChatGPT / Codex 主要负责技术方案分析、代码编写与调试、自动化测试、构建脚本，以及文档和 GitHub 仓库整理。
+
+已进行的自动检查与本机验证范围见 [验证说明](docs/VALIDATION.md)。
+
 ## 工作方式
 
 ```mermaid
